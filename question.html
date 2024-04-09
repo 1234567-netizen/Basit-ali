@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  JavaScript Program to Add Two Numbers 
+        function add(a, b) {
+            return a + b;
+        }
+        console.log(add(5, 6))
+
+        // JavaScript Program for Multiplication of Two Numbers
+
+        function Multiplication(a, b) {
+            return a * b
+        }
+        console.log(add(3, 5))
+
+        // JavaScript Program to Add Float Numbers
+
+        function Float(a, b) {
+            return a + b;
+        }
+        console.log(Float(3.4, 4))
+
+        // JavaScript Program to Check if a Number is Odd or Even
+
+        function Evenodd(num) {
+            if (num % 2 === 0) {
+                return "Even num"
+            } else {
+                return "Odd num"
+            }
+        }
+        console.log(Evenodd(10))
+
+        // JavaScript Program to Check if a number is Positive, Negative, or Zero
+
+        function checknum(num) {
+
+            if (num === 0) {
+                return "Zero num"
+            } else if (num > 0) {
+                return "Positve num"
+            } else {
+                return "Negative num"
+            }
+
+        }
+        console.log(checknum(-9))
+
+        // JavaScript Program to Swap Two Variables
+
+        var a = 12;
+        var b = 13;
+        console.log(` Before swaping A : is ${a} B : is ${b}`)
+        var c;
+        var c = a; // c= 12
+        var a = b; // a= 13
+        var b = c; // b =12
+        console.log(` After swaping A : is ${a} B : is ${b}`)
+
+        // without using third variable
+        console.log(` without using thir var `)
+
+        var a = 12;
+        var b = 13;
+        console.log(` Before swaping A : is ${a} B : is ${b}`)
+        a = a + b; // 25
+        b = a - b; // 12
+        a = a - b; //13
+        console.log(` After swaping A : is ${a} B : is ${b}`)
+
+        // JavaScript Program to Find the Sum of Natural Numbers 
+
+        function Natural(num) {
+            let storenatural = 0;
+            if (num.length === 0) {
+                return "Not a Natural nums"
+            } else {
+                for (let i = 0; i < num.length; i++) {
+                    if (num[i] < 1) {
+                        return "Not a Natural nums"
+                    }
+                    storenatural += num[i]
+                }
+                return storenatural
+            }
+        }
+        console.log("Sum of Natural numbers is: " + Natural([1, 2, 3, 4, 5]));
+
+        // JavaScript Program for Armstrong Numbers
+
+        function Armstrong(num) {
+            let digits = num.toString();
+            let lengthDigits = digits.length;
+            let sum = 0;
+            for (let i = 0; i < lengthDigits; i++) {
+                let digit = parseInt(digits[i]);
+                sum += Math.pow(digit, lengthDigits);
+            }
+            return sum === num;
+        }
+        let number = 153;
+        if (Armstrong(number)) {
+            console.log(number + " is an Armstrong number.")
+        } else {
+            console.log(number + " is not an Armstrong number.")
+        }
+
+        // JavaScript Program to Check for Palindrome Number
+
+        function Palindrome(str) {
+            let storestr = str.split("").reverse().join("");
+            return str === storestr;
+        }
+
+        let inputString = "madam";
+        console.log(inputString + " is" + (Palindrome(inputString) ? " " : " not ") + "a palindrome.");
+
+        // JavaScript Program to Find the Area of Triangle
+
+        // formula of traingle
+        // Area of a Triangle = A = ½ (b × h) square units
+        function traingle(b, h) {
+            return 1 / 2 * b * h;
+        }
+        console.log(`Area of traingle = ${traingle(34, 3)}`)
+
+        // Variable Declaration: How would you declare a variable to store
+        // a person's age in JavaScript
+
+        var ages1 = 23;
+        let ages2 = 22;
+        const ages3 = 34;
+        console.log(` var Declaration of age ${ages1} ${ages2} ${ages3}`)
+
+
+        // Variable Assignment: Given a variable x with an initial value of 5, 
+        //  how would you assign a new value of 10 to x?
+
+        var x = 5;
+        x = 10;
+        console.log(`new vslue of x is ${x}`);
+
+        // Math Operations: If you have two variables, a with a value of 7 and b with a value of 3,
+        // how would you add them together and store the result in a third variable called sum?
+
+        let a1 = 7;
+        let b1 = 3;
+        let c3 = a1 + b1;
+        console.log(`Total of a and b is : ${c3}`)
+
+        // Data Type Check: How can you check the data type of a variable in JavaScript?
+        var a = 3;
+        console.log(`typeof is : ${typeof a}`)
+
+        // String Concatenation: Given two strings, firstName and lastName, how would you
+        //  concatenate them to form a full name and store it in a variable called fullName?
+
+        let firstName = "Basit ali"
+        let lastName = " Mehboob"
+        let fullName = firstName + lastName;
+        console.log(`fullname is  :  ${fullName}`)
+
+        // Comparison Operators: What operator would you use to check if two
+        //   variables, x and y, are equal in value but not necessarily in data type?
+
+        var a = 12;
+        var b = "12";
+        // == check only var equal or not
+        // === check also data type ;
+        console.log(a === b);
+
+        // What are the shorthand operators for incrementing and decrementing a variable by 1?
+
+        var a = 12;
+        var b = 11;
+        b--; //decrement
+        a++; // increment00
+        console.log(a)
+        console.log(b)
+
+        // Write a JavaScript program that uses a for loop to print the numbers from 1 to 10 to the console.
+
+        console.log(`For loop`)
+
+        let str = 10
+        for (let i = 1; i <= str; i++) {
+            console.log(i)
+        }
+
+
+        // for loop to calculate and display the sum of all even numbers between 1 and 50.
+
+        function evennum(num) {
+            let streven = 0;
+            for (let i = 1; i <= num; i++) {
+                if (i % 2 === 0) {
+                    streven += i
+                }
+            }
+            return streven
+        }
+        console.log(`Sum of all even num beteen 1 to 50 is :  ${evennum(50)} `)
+
+        //   loops to print the multiplication table of a number entered by the user.
+        //    The table should be displayed in the console.
+
+        function table(num) {
+            let st = ""
+            for (let i = 0; i <= 10; i++) {
+                st += `${num} * ${i} = ${num * i}\n`
+            }
+            return st
+        }
+        let num = 2
+        console.log(table(num))
+
+        // Write a JavaScript program that uses a for loop to reverse 
+        //   a given string. For example, if the input is "hello," the program should output "olleh."
+
+        function reversestr(str) {
+            let strreverse = ""
+            for (let i = str.length - 1; i >= 0; i--) {
+                strreverse += str[i]
+            }
+            return strreverse
+        }
+        console.log(reversestr("Basit"))
+
+        // Create a JavaScript program that calculates the factorial of
+        //    a number entered by the user using a for loop. Display the result in the console.
+
+        function factorialnum(factorial) {
+            let strfac = 1
+            for (let i = 1; i <= factorial; i++) {
+                strfac *= i
+            }
+            return strfac;
+        }
+        let factorail = 5
+        console.log(`factorail of ${factorail} is :  ${factorialnum(factorail)}`)
+
+        // Write a JavaScript program that uses a for loop to calculate 
+        // and display the sum of all the elements in an array of numbers.
+
+        function arraysum(arr) {
+            let sum3 = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum3 += arr[i]
+            }
+            return sum3;
+        }
+        let arr = [1, 2, 3, 4, 5]
+        console.log(`Total of sum of arr is : ${arraysum(arr)}`)
+
+
+        //    Write a JavaScript program that counts and displays the
+        // number of vowels in a given string using a for loop.
+
+        function vowelsnum(letters) {
+            let vowelCounts = {
+                'a': 0,
+                'e': 0,
+                'i': 0,
+                'o': 0,
+                'u': 0
+            };
+
+            let vowel = "aeiouAEIOU";
+
+            for (let i = 0; i < letters.length; i++) {
+                let letter = letters[i].toLowerCase();
+                if (vowel.includes(letter)) {
+                    vowelCounts[letter]++;
+                }
+            }
+
+            return vowelCounts;
+        }
+
+        let letters = "basit ali mehboob";
+        console.log(vowelsnum(letters));
+
+
+        //         Implement the classic FizzBuzz program using a for loop.
+        //    Print numbers from 1 to 100, but for multiples of 3, print "Fizz," for multiples 
+        //    of 5, print "Buzz," and for numbers that are multiples of both 3 and 5, print "FizzBuzz."
+
+        function fizzbuzz(num) {
+            for (let i = 1; i <= num; i++) {
+                if (i % 3 === 0) {
+                    console.log("fizz");
+
+                } else if (i % 5 === 0) {
+                    console.log("Buzz");
+
+                } else if (i % 3 === 0 && i % 5 === 0) {
+                    console.log("Fizzbuzz")
+                } else {
+
+                    console.log("Number:", i);
+                }
+
+            }
+        }
+        console.log(fizzbuzz(100))
+
+        // Write a JavaScript program that finds and displays all prime numbers between 1 and 100 using for loops
+
+        function primenum(num) {
+            if (num === 1) {
+                console.log(`${num} is not a prime number`);
+            } else if (num === 2) {
+                console.log(`${num} is a prime number`);
+            } else if (num < 1) {
+                console.log(`${num} is not a prime number`);
+            } else {
+                let isPrime = true;
+                for (let i = 2; i < num; i++) {
+                    if (num % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    console.log(`${num} is a prime number`);
+                } else {
+                    console.log(`${num} is not a prime number`);
+                }
+            }
+        }
+
+        primenum(9);
+
+
+        //         Write a function that filters an array of strings based on a specific;
+        //    condition. For example, filter out all strings longer than a given length.
+
+
+        function filterstr(arr, maxlength) {
+            return arr.filter(str => str.length <= maxlength);
+        }
+        const strings = ["basit", "ali", "mehboob"];
+        const maxlength = 5;
+        const filteredStrings = filterstr(strings, maxlength);
+
+        console.log("Original array:", strings);
+        console.log("Filtered array (strings with length less than or equal to", maxlength + "):", filteredStrings);
+
+        // Create a function that finds the maximum and minimum values in an array of numbers.
+
+        function maxmin(array) {
+            if (array.length === 0) {
+                return { max: undefined, min: undefined };
+            }
+            let max = array[0];
+            let min = array[0];
+
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] > max) {
+                    max = array[i];
+                }
+                if (array[i] < min) {
+                    min = array[i];
+                }
+            }
+            return { max, min };
+        }
+
+        let array = [1, 2, 34, 5, 6, 0];
+        let result = maxmin(array);
+        console.log(result);
+        console.log("Maximum: " + result.max);
+        console.log("Minimum: " + result.min);
+
+        // Write a function that removes duplicate elements from an array of strings.
+
+        function duplicate(arr) {
+            let unique = [...new Set(arr)]
+            return unique
+        }
+        console.log(duplicate([1, 2, 3, 4, 5, 6, 7, 7, 6, 8, 9, 10]))
+
+        // Given two arrays of strings, write a function to concatenate them into a single array.
+
+        function concatenateArrays(arr1, arr2) {
+            return arr1.concat(arr2);
+        }
+        const array1 = ["basit"];
+        const array2 = ["ali"];
+        const concatenatedArray = concatenateArrays(array1, array2);
+        console.log(concatenatedArray);
+
+        // Write a function that uses the map method to transform an array of strings to uppercase.
+
+        function uppercase(str) {
+            let r = str.map(value => {
+                return value.toUpperCase()
+            })
+            return r
+        }
+        console.log(uppercase(["basit"]))
+
+
+        //   Create a function that uses the filter method to return an array containing
+        //    only the even numbers from an input array.
+
+        function evenf(str) {
+            let f = str.filter(value => {
+                return value % 2 === 0
+            })
+            return f
+
+        }
+        console.log(evenf([1, 2, 3, 4, 5, 6, 7, 8]))
+
+        // Write a function that uses the reduce method to find the product of all numbers in an array.
+
+        function reduce(str) {
+            let k = str.reduce((total, value) => {
+                return total * value
+            }, 1)
+            return k
+        }
+        console.log(reduce([1, 2, 3, 4]))
+
+        // Given an array of words, write a JavaScript function to find and return the longest word.
+
+        function longestword(word) {
+            let countword = ""
+            for (let i = 0; i < word.length; i++) {
+                if (word[i].length > countword.length) {
+                    countword = word[i]
+                }
+            }
+            return countword
+
+        }
+        console.log(longestword(["basit", "ali", "mehboob"]))
+
+
+        //    Create a function that takes a sentence (string) as input and returns the number of words in it.
+
+        function countwords(words) {
+            let store = {}
+            let countword = 0
+            for (let i = 0; i < words.length; i++) {
+                let w = words[i]
+                if (!store[w]) {
+                    store[w] = 1
+                } else {
+                    store[w]++
+                }
+            }
+            return store
+        }
+        console.log(countwords(["A", "b", "c", "A", "b"]))
+
+        // Create a function that finds and returns the most common character in an array of strings.
+
+
+        function comonchar(char) {
+            let comon = {};
+            let result = "";
+            for (let i = 0; i < char.length; i++) {
+                let letter = char[i];
+                if (comon[letter]) {
+                    comon[letter]++;
+                } else {
+                    comon[letter] = 1;
+                }
+            }
+
+            for (let key in comon) {
+                if (comon[key] > 1) {
+                    result += key;
+                }
+            }
+
+            return result;
+        }
+
+        console.log(comonchar("basit ali mehboob"));
+
+
+        // Implement a function that sorts an array of strings in alphabetical order.
+
+     function sorts(str) {
+            let s = str.split("")
+            let so = s.sort()
+            let r = so.join("")
+            return r
+        }
+        console.log(sorts("zsafrt"))
+
+        // Create a function that takes an array of strings and generates 
+        //    an acronym by taking the first letter of each word and combining them.
+
+        function firstletter(str) {
+            let storelet = "";
+            for (let i = 0; i < str.length; i++) {
+                let word = str[i][0].toUpperCase();
+                storelet += word;
+            }
+            return storelet;
+        }
+
+        console.log(firstletter(["basit", "ali"]));
+
+
+        // JavaScript Program to Count Words of a String
+
+        function countWords(str) {
+            let words = str.trim().split("");
+            return words.length;
+        }
+        let sentence = "basit";
+        console.log("Number of words:", countWords(sentence));
+
+        // JavaScript Program to Check if a String Contains any Whitespace Characters
+
+        function whitespace(word) {
+            var Regex = /\s/;
+            return Regex.test(word)
+        }
+        console.log(whitespace("basit  "))
+
+        // JavaScript Program to Replace All Occurrences of a String
+
+        function Replace(string, search, replace) {
+            var Regex = new RegExp(search, 'g')
+            return string.replace(Regex, replace)
+        }
+        var string = "Hello basit welcome"
+        var search = "welcome"
+        var replace = "Thanks"
+
+        var previus = Replace(string, search, replace)
+        console.log(`orignal string  : ${string}`)
+        console.log(`previus string  : ${previus}`)
+
+        // JavaScript Program to Check if a String Starts With Another String
+
+        function startstring(star, search) {
+            return star.startsWith(search)
+        }
+        var star = "Hello basit"
+        var search = "ello"
+        console.log(startstring(star, search))
+
+        // JavaScript Program to Create Multi Line Strings
+
+        function multi(m) {
+            return m
+        }
+        let m = `  hii
+           how are u  `
+        console.log(multi(m))
+
+        // JavaScript Program to Trim a String at Beginning or Ending
+
+        function trim(t) {
+            return t.trimStart().trimEnd()
+        }
+        let t = "    basit     "
+        console.log(trim(t))
+
+        // JavaScript Program to Delete First Character of a String
+
+        function Deletef(f) {
+            return f.substring(1)
+        }
+        let f = "basit"
+        console.log(Deletef(f))
+
+        // JavaScript Program to Get the Last Character of a String
+
+        function getLastCharacter(str) {
+            return str.charAt(str.length - 1)
+        }
+        let str1 = "hello";
+        let lastCharacter = getLastCharacter(str1);
+        console.log(lastCharacter);
+
+        // JavaScript Program to Check Whether a Passed String is Palindrome or Not
+
+        function palindrome(p) {
+            let a = p.split("").reverse().join("")
+            return p === a;
+        }
+        let p = "madam"
+        console.log(palindrome(p))
+
+        // JavaScript Program to Replace Characters of a String
+
+        function replaceCharacters(str, charToReplace, replacementChar) {
+            let result = '';
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === charToReplace) {
+                    result += replacementChar;
+                } else {
+                    result += str[i];
+                }
+            }
+            return result;
+        }
+        let myString = "hello world";
+        let replacedString = replaceCharacters(myString, 'l', 'x');
+        console.log(replacedString);
+
+        // JavaScript Program to Generate a Random String
+
+        function generateRandomString(length) {
+            let result = '';
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                result += characters.charAt(randomIndex);
+            }
+            return result;
+        }
+        const randomString = generateRandomString(10);
+        console.log(randomString);
+
+        // JavaScript Program to Make First Letter of a String Uppercase
+
+        function uppercase1(p) {
+            return p.charAt(0).toUpperCase() + p.slice(1);
+        }
+
+        console.log(uppercase1("basit"));
+
+        // JavaScript Program to Compare the Case Insensitive Strings;
+
+        function compareCaseInsensitive(str1, str2) {
+            return str1.toLowerCase() === str2.toLowerCase();
+        }
+        const string1 = "hello";
+        const string2 = "hello";
+        console.log(compareCaseInsensitive(string1, string2));
+
+        // Star print
+
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= i; j++) {
+                let k = ""
+                k += "*"
+                document.write(k + " ")
+            }
+            document.write("<br>")
+        }
+
+        // counting print 
+
+        for (let y = 1; y <= 5; y++) {
+            for (let t = 1; t <= y; t++) {
+
+                document.write(t + " ")
+            }
+            document.write("<br>")
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

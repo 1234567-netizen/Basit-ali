@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO-Do List</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0px auto;
+      background: #000;
+      color: white;
+      height: auto;
+      padding-bottom: 20px;
+      text-align: center;
+      padding-top: 20px;
+      border-radius: 30px;
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      width: 50%;
+      border: none;
+      padding: 10px;
+      text-align: center;
+      border-radius: 40px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      background-color: rgb(157, 94, 12);
+      color: white;
+      border: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+    }
+
+    button:hover {
+      background-color: darkorange;
+      color: #000;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      color: black;
+      background-color: #6d6666;
+      /* margin-right: 20px; */
+    }
+
+    li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>TO-Do List</h1>
+    <input type="text" placeholder="Enter Task" id="input">
+    <button id="btn">Enter</button>
+    <ul id="ul"></ul>
+  </div>
+
+  <script>
+    var inputTask = document.getElementById("input");
+    var btn = document.getElementById("btn");
+    var taskList = document.getElementById("ul");
+
+    btn.addEventListener("click", () => {
+      if (inputTask.value === "") {
+        alert("Please enter a task!");
+        return;
+      }
+
+      var li = document.createElement("li");
+      li.textContent = inputTask.value;
+
+      var deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Delete";
+      li.appendChild(deleteBtn);
+
+      var updateBtn = document.createElement("button");
+      updateBtn.textContent = "Update";
+      li.appendChild(updateBtn);
+
+      taskList.appendChild(li);
+
+
+      inputTask.value = '';
+
+      deleteBtn.addEventListener("click", () => {
+
+        taskList.removeChild(li);
+      });
+
+      updateBtn.addEventListener("click", () => {
+        var newTask = prompt("Enter new task:");
+        if (newTask !== null && newTask.trim() !== "") {
+          li.textContent = newTask;
+          li.appendChild(deleteBtn);
+          li.appendChild(updateBtn);
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+
+</html>

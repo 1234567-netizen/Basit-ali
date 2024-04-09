@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match-num</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0px auto;
+            background: #822323;
+            color: white;
+            height: auto;
+            padding-bottom: 20px;
+            text-align: center;
+            padding-top: 20px;
+            border-radius: 30px;
+            margin-top: 20px;
+            padding: 100px;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            border-radius: 40px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: rgb(157, 94, 12);
+            color: white;
+            border: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+        }
+
+        button:hover {
+            background-color: darkorange;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Match Number with computer</h1>
+        <input type="text" placeholder="Enter num" id="user">
+        <button id="btn">Submit</button>
+        <h3 id="result"></h3>
+        <script>
+
+            var user = document.getElementById("user");
+            var btn = document.getElementById("btn");
+            var result = document.getElementById("result");
+            alert("Plz enter 1  to 100 digits")
+
+            btn.addEventListener("click", () => {
+
+                var userInput = parseInt(user.value);
+
+                if (isNaN(userInput)) {
+                    result.innerHTML = "Error! Please enter a number.";
+                    return;
+                }
+
+
+                var computer = Math.floor(Math.random() * 100);
+
+                if (userInput === computer) {
+                    result.innerHTML = "User wins! Successfully matched " + userInput + " with computer value is  " + computer + ".";
+                    result.style.color = "green"
+                    result.style.background = "white"
+
+                } else {
+                    result.innerHTML = "User loss " + userInput + " does not match with computer value is " + computer + ".";
+                    result.style.color = "red"
+                    result.style.background = "white"
+
+                }
+                userInput.value = '';
+
+            });
+
+        </script>
+    </div>
+</body>
+
+</html>

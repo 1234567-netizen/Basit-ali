@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Add Google Fonts for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f6fb1;
+            color: #333;
+        }
+        .navbar {
+            background-color: #b9a129;
+            padding: 10px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #ffc107;
+        }
+        .navbar img {
+            height: 40px;
+            margin-right: 20px;
+        }
+        h1 {
+            margin-top: 80px;
+            margin-bottom: 20px;
+            color: #2980b9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        .form-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        form input[type="email"],
+        form input[type="password"],
+        form button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        #total-earnings,
+        #mining-timer {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        button {
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2471a3;
+        }
+        footer {
+            background-color: #34495e;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+        /* Animation for popup */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            z-index: 9999;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <a href="#"><img src="online.png" alt="Basit Chain Logo"></a>
+        </div>
+        <div>
+          <a href="#"><i class="fas fa-user"></i> Profile</a>
+          <a href="#" id="mining-btn"><i class="fas fa-cog"></i> Mining App</a>
+          <a href="#" id="withdraw-btn"><i class="fas fa-wallet"></i> Withdraw</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Earned with Basit</h1>
+        <div class="form-container">
+          <h2>Register with Email</h2>
+          <form id="register-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Register</button>
+          </form>
+        </div>
+        <div id="total-earnings">Total Earnings: $0.25</div>
+        <div id="mining-timer">Time until next mining: Calculating...</div>
+        <button id="start-mining">Start Mining</button>
+    </div>
+    <footer>
+        <p>&copy; 2024 Basit chain</p>
+    </footer>
+    <div id="popup" class="popup"></div>
+    
+    <script>
+        alert("Successfully! Get $0.25")
+        let totalEarned = 0;
+        let lastMiningDate = new Date().getDate(); // Store the last mining date
+        
+        document.getElementById('start-mining').addEventListener('click', function() {
+          const currentDate = new Date().getDate();
+          if (currentDate !== lastMiningDate) {
+            totalEarned += 0.5;
+            updateTotalEarnings();
+            lastMiningDate = currentDate;
+            updateMiningTimer();
+            alert("You've earned $0.5. Total earned: $" + totalEarned.toFixed(2));
+            document.getElementById('start-mining').disabled = true; // Disable mining button after one click
+          } else {
+            alert("You've already mined today. Please wait until tomorrow for the next mining opportunity.");
+          }
+        });
+        
+        document.getElementById('withdraw-btn').addEventListener('click', function() {
+          if (totalEarned >= 10) {
+            alert("Withdrawal successful! Check your payment method for the funds.");
+            totalEarned -= 10; // Assuming a withdrawal fee of $10
+            updateTotalEarnings();
+          } else {
+            alert("Insufficient funds for withdrawal. You need at least $10 to withdraw.");
+          }
+        });
+        
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+          const formData = new FormData(this);
+          const email = formData.get('email');
+          const password = formData.get('password');
+          // Here you can handle the registration logic, like sending the data to a server
+          alert(`Registered with email: ${email}`);
+          totalEarned += 0.25; // Reward $0.25 for successful registration
+          updateTotalEarnings();
+          // Clear the form after registration
+          this.reset();
+        });
+        
+        function updateTotalEarnings() {
+          document.getElementById('total-earnings').innerText = `Total Earnings: $${totalEarned.toFixed(2)}`;
+        }
+        
+        function updateMiningTimer() {
+          const currentDateTime = new Date();
+          const endOfDay = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate() + 1);
+          const remainingTime = endOfDay - currentDateTime;
+          const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+          document.getElementById('mining-timer').innerText = `Time until next mining: ${hours}h ${minutes}m ${seconds}s`;
+        }
+        
+        // Display a popup with a random name every 10 seconds
+        setInterval(function() {
+          const names = ["Basit ali", "Hamza", "Fatima", "Ali", "Malika","Haider"];
+          const randomName = names[Math.floor(Math.random() * names.length)];
+          const popup = document.getElementById('popup');
+          popup.innerHTML = `<div class="random-name">${randomName} earned $4.675! Recently</div>`;
+          popup.style.display = 'block';
+          setTimeout(() => {
+            popup.style.display = 'none';
+          }, 5000); // Popup display duration
+        }, 10000); // 10 seconds interval
+        
+    </script>
+</body>
+</html>
